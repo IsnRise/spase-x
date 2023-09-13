@@ -8,7 +8,6 @@ def fetch_spacex_launches(launch_id, pictures_path):
     api_spacex_url = f"https://api.spacexdata.com/v5/launches/{launch_id}"
     spacex_response = requests.get(api_spacex_url)
     spacex_response.raise_for_status()
-    space_photo_links = [api_spacex_url for api_spacex_url in spacex_response.json()["links"]["flickr"]["original"]]
     for number, link in enumerate(space_photo_links, start=1):
         spacex_url_format = helper_script.get_picture_format(link)
         spacex_filename = f"spacex_{number}{spacex_url_format}"

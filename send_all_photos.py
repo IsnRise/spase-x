@@ -30,7 +30,7 @@ def main():
     selecting_a_folder = args.path
     while True: 
         try:
-            send_all_images(args_time, args_path, bot, chat_id)
+            send_all_images(frequency_sending, selecting_a_folder, bot, chat_id)
         except (telegram.error.BadRequest, telegram.error.TimedOut) as ex:
             time.sleep(60)
             continue  

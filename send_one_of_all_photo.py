@@ -27,10 +27,7 @@ def main():
     args = parser.parse_args()
     args_file = args.file
     args_path = args.path
-    if args_file:
-        send_one_file(args_file, args_path, bot, chat_id)
-    else:
-        send_random_photo(args_path, bot, chat_id)
+
     
 
 if __name__ == "__main__":

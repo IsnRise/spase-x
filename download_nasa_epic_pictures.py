@@ -14,7 +14,7 @@ def fetch_nasa_epic_pictures(pictures_path,  nasa_token):
     nasa_epic_response = requests.get(nasa_epic_url, params=params)
     nasa_epic_response.raise_for_status()
     nasa_epic_response = nasa_epic_response.json()
-    for number, nasa_epic_data in enumerate(nasa_epic_response, start=1):
+    for number, transmits_epic_images in enumerate(nasa_epic_response, start=1):
         nasa_epic_date = nasa_epic_station["date"]
         nasa_epic_name = nasa_epic_station["image"]
         nasa_epic_date = datetime.datetime.fromisoformat(nasa_epic_date).strftime("%Y/%m/%d")

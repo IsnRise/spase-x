@@ -26,8 +26,8 @@ def main():
     parser.add_argument("--time", default=14400, help="время между отправкой картинок в секундах", type=int)
     parser.add_argument("--path", default = "all_images", help="выбор определенной папки", type=str)    
     args = parser.parse_args()
-    args_time = args.time
-    args_path = args.path
+    frequency_sending = args.time
+    selecting_a_folder = args.path
     while True: 
         try:
             send_all_images(args_time, args_path, bot, chat_id)

@@ -33,7 +33,7 @@ def main():
     args = parser.parse_args()
     pictures_path = args.path
     Path(args_path).mkdir(parents=True, exist_ok=True)
-    fetch_nasa_epic_pictures(nasa_epic_url,nasa_token)
+    fetch_nasa_epic_pictures(nasa_token)
 
 if __name__ == "__main__":
     main()

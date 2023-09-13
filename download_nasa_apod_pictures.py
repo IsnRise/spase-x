@@ -32,9 +32,7 @@ def main():
     args = parser.parse_args()
     nasa_pictures_count = args.count
     pictures_path = args.path
-    Path(args_path).mkdir(parents=True, exist_ok=True)
-    try:
-        fetch_nasa_apod_pictures(args_path, nasa_pictures_count, nasa_token)    
+    Path(args_path).mkdir(parents=True, exist_ok=True)   
    
 
 if __name__ == "__main__":

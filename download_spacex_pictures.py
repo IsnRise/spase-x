@@ -4,7 +4,7 @@ import argparse
 from pathlib import Path
 
 
-def fetch_spacex_launches(launch_id, args_path):
+def fetch_spacex_launches(launch_id, pictures_path):
     api_spacex_url = f"https://api.spacexdata.com/v5/launches/{launch_id}"
     spacex_response = requests.get(api_spacex_url)
     spacex_response.raise_for_status()

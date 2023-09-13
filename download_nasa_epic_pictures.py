@@ -6,7 +6,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 import argparse
 
-def fetch_nasa_epic_pictures(args_path,  nasa_token):
+def fetch_nasa_epic_pictures(pictures_path,  nasa_token):
     nasa_epic_url = "https://api.nasa.gov/EPIC/api/natural/images"
     params = {
         "api_key" : nasa_token,
@@ -21,7 +21,7 @@ def fetch_nasa_epic_pictures(args_path,  nasa_token):
         nasa_epic_picture_format = helper_script.get_picture_format(f"https://api.nasa.gov/EPIC/archive/natural/{nasa_epic_date}/png/{nasa_epic_name}.png")
         nasa_epic_link = f"https://api.nasa.gov/EPIC/archive/natural/{nasa_epic_date}/png/{nasa_epic_name}.png"
         nasa_epic_filename = f"nasa_epic_{number}{nasa_epic_picture_format}"
-        helper_script.download_picture(nasa_epic_response, params, nasa_epic_link, args_path, nasa_epic_filename)            
+        helper_script.download_picture(nasa_epic_response, params, nasa_epic_link, pictures_path, nasa_epic_filename)            
 
 
 def main():
@@ -31,7 +31,7 @@ def main():
     parser = argparse.ArgumentParser(description="Это скрипт создан для скачивания фотографий с баз NASA, фотографии из категории EPIC")
     parser.add_argument("--path", default="all_images", help="в какую папку загружать картинки")    
     args = parser.parse_args()
-    args_path = args.path
+    pictures_path = args.path
     Path(args_path).mkdir(parents=True, exist_ok=True)
     fetch_nasa_epic_pictures(nasa_epic_url,nasa_token)
 
